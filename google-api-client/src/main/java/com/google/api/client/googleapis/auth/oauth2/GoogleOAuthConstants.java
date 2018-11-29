@@ -25,10 +25,10 @@ import com.google.api.client.util.Beta;
 public class GoogleOAuthConstants {
 
   /** Encoded URL of Google's end-user authorization server. */
-  public static final String AUTHORIZATION_SERVER_URL = "https://accounts.google.com/o/oauth2/auth";
+  public static String AUTHORIZATION_SERVER_URL = "https://accounts.google.com/o/oauth2/auth";
 
   /** Encoded URL of Google's token server. */
-  public static final String TOKEN_SERVER_URL = "https://oauth2.googleapis.com/token";
+  public static String TOKEN_SERVER_URL = "https://oauth2.googleapis.com/token";
 
   /**
    * {@link Beta} <br/>
@@ -37,8 +37,17 @@ public class GoogleOAuthConstants {
    * @since 1.15
    */
   @Beta
-  public static final String DEFAULT_PUBLIC_CERTS_ENCODED_URL =
+  public static String DEFAULT_PUBLIC_CERTS_ENCODED_URL =
       "https://www.googleapis.com/oauth2/v1/certs";
+
+  static {
+    AUTHORIZATION_SERVER_URL = System.getProperty("google.auth.server.url",
+            AUTHORIZATION_SERVER_URL);
+    TOKEN_SERVER_URL = System.getProperty("google.token.server.url",
+            TOKEN_SERVER_URL);
+    DEFAULT_PUBLIC_CERTS_ENCODED_URL = System.getProperty("google.certs.encode.url",
+            DEFAULT_PUBLIC_CERTS_ENCODED_URL);
+  }
 
   /**
    * Redirect URI to use for an installed application as specified in <a
