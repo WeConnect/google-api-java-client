@@ -9,11 +9,22 @@
   </parent>
   <groupId>com.google.api-client</groupId>
   <artifactId>google-api-client-parent</artifactId>
-  <version>1.25.0-WW-1</version>
+  <version>1.25.0</version>
   <packaging>pom</packaging>
   <name>Parent for the Google API Client Library for Java</name>
 
   <url>https://github.com/google/google-api-java-client</url>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>nexus</id>
+      <url>http://nexus.nakedhub.com/nexus/content/repositories/snapshots/</url>
+    </snapshotRepository>
+    <repository>
+      <id>nexus</id>
+      <url>http://nexus.nakedhub.com/nexus/content/repositories/releases/</url>
+    </repository>
+  </distributionManagement>
 
   <issueManagement>
     <system>GitHub</system>
